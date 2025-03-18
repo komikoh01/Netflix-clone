@@ -9,7 +9,7 @@ function MaxWidthWrapper({
   className: string;
 }) {
   return (
-    <div className={cn(" max-w-screen-2xl px-4 py-6 m-auto", className)}>
+    <div className={cn(" max-w-screen-2xl px-4 py-6 m-auto", className )}>
       {children}
     </div>
   );
