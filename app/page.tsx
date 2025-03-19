@@ -1,7 +1,7 @@
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <div> Netflix copy</div>
+    <main>
+    </main>
   );
 }
