@@ -1,7 +1,32 @@
 export const links = [
-    {id: 1, name: "Browse", link: "Browse"},
-    {id: 2, name: "TV Shows", link: "TVShows"},
-    {id: 3, name: "Movies", link: "Movies"},
-    {id: 4, name: "New & Popular", link: "New&Popular"},
-    {id: 5, name: "My List", link: "MyList"}
-]
+  { id: 0, name: "Home", link: "/" },
+  { id: 1, name: "Series", link: "Series" },
+  { id: 2, name: "Films", link: "Films" },
+  { id: 3, name: "Recently Added", link: "RecentlyAdded" },
+  { id: 4, name: "My List", link: "MyList" },
+];
+
+export const genres = [
+  {id: 0, genre: "Action"},
+  {id: 1, genre: "Anime"},
+  {id: 2, genre: "British"},
+  {id: 3, genre: "Classics"},
+  {id: 4, genre: "Comedies"},
+  {id: 5, genre: "Crime"},
+  {id: 6, genre: "Cult"},
+  {id: 7, genre: "Documentaries"},
+  {id: 8, genre: "Dramas"},
+  {id: 9, genre: "Halloween"},
+  {id: 10, genre: "Hollywood"},
+  {id: 11, genre: "Horror"},
+  {id: 12, genre: "Independent"},
+  {id: 13, genre: "International"},
+  {id: 14, genre: "Kids & Family"},
+  {id: 15, genre: "LGBTQ"},
+  {id: 16, genre: "Music & Musicals"},
+  {id: 17, genre: "Romance"},
+  {id: 18, genre: "Sci-Fi"},
+  {id: 19, genre: "Sports"},
+  {id: 20, genre: "Stand-up Comedy"},
+  {id: 21, genre: "Thrillers"},
+];

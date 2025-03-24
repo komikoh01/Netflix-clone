@@ -1,7 +1,8 @@
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"
 
 function page() {
   return (
-    <div>My List page</div>
+    <MaxWidthWrapper>My List page</MaxWidthWrapper>
   )
 }
 
