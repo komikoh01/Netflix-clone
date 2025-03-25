@@ -8,10 +8,20 @@ import { useEffect, useState } from "react";
 import MovieSelector from "./MovieSelector";
 import { AlertTriangle, Search, User } from "lucide-react";
 import GenreSelect from "./GenreSelect";
+import GenreBreadcrumb from "./GenreBreadcrumb";
+import { BreadcrumbSeparator } from "./ui/breadcrumb";
 
+interface GenreData {
+  selectedGenre: string | null;
+  isSelected: boolean;
+}
 export function NavBarHome() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [selectedGenre, setSelectedGenre] = useState<GenreData>({
+    selectedGenre: null,
+    isSelected: false,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +36,12 @@ export function NavBarHome() {
   }, []);
 
   const handleGenreChange = (value: string) => {
-    console.log("Este es el valor seleccionado", value)
-  }
+    setSelectedGenre({ selectedGenre: value, isSelected: true });
+  };
+
+  const handleBradcrumbClick = () => {
+    setSelectedGenre({ selectedGenre: null, isSelected: false });
+  };
 
   const homeLinks = links.filter((link) => link.id !== 0);
 
@@ -119,9 +133,21 @@ export function NavBarHome() {
             </nav>
             <div className=" pt-20">
               <div className=" flex justify-start items-center gap-2">
-                <h3 className=" text-3xl font-semibold">Series</h3>
-                <span className=" text-white text-4xl">></span>
-                <GenreSelect onValueChange={handleGenreChange}/>
+                {selectedGenre.selectedGenre !== null ? (
+                  <GenreBreadcrumb
+                    movieType="Series"
+                    selectedGenre={selectedGenre.selectedGenre}
+                    onClick={handleBradcrumbClick}
+                  />
+                ) : (
+                  <div className=" flex gap-2 justify-center items-center ">
+                    <h2 className="text-white text-3xl font-semibold">
+                      Series
+                    </h2>
+                    <BreadcrumbSeparator className=" flex justify-center items-center" />
+                    <GenreSelect onValueChange={handleGenreChange} />
+                  </div>
+                )}
               </div>
 
               <MovieSelector />
@@ -172,9 +198,21 @@ export function NavBarHome() {
             </nav>
             <div className=" pt-20">
               <div className=" flex justify-start items-center gap-2">
-                <h3 className=" text-3xl font-semibold">Films</h3>
-                <span className=" text-white text-4xl">></span>
-                <GenreSelect onValueChange={handleGenreChange} />
+                {selectedGenre.selectedGenre !== null ? (
+                  <GenreBreadcrumb
+                    movieType="Films"
+                    selectedGenre={selectedGenre.selectedGenre}
+                    onClick={handleBradcrumbClick}
+                  />
+                ) : (
+                  <div className=" flex gap-2 justify-center items-center ">
+                    <h2 className="text-white text-3xl font-semibold">
+                      Films
+                    </h2>
+                    <BreadcrumbSeparator className=" flex justify-center items-center" />
+                    <GenreSelect onValueChange={handleGenreChange} />
+                  </div>
+                )}
               </div>
 
               <MovieSelector />
